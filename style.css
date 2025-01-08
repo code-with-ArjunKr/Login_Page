@@ -1,0 +1,211 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: #121212; /* Dark background */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #fff;
+}
+
+/* Login Container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* Login Box Styling */
+.login-box {
+    background: #1a1a1a;
+    width: 70%;
+    max-width: 800px;
+    padding: 80px 50px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: scaleIn 1.5s forwards;
+}
+
+/* Header Styling */
+h2 {
+    font-size: 4rem; /* Larger font size */
+    color: #feb47b;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Input Container */
+.input-container {
+    position: relative;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+/* Input Fields */
+.input-container input {
+    width: 100%;
+    padding: 25px;
+    font-size: 2rem; /* Increased font size for larger inputs */
+    border: 2px solid #444;
+    border-radius: 10px;
+    outline: none;
+    background-color: #222;
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.input-container input:focus {
+    border-color: #feb47b;
+    background-color: #333;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+.input-container label {
+    position: absolute;
+    top: -25px;
+    left: 20px;
+    font-size: 1.5rem; /* Larger label font size */
+    color: #888;
+    transition: 0.3s ease;
+    font-weight: bold;
+}
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+    top: -35px;
+    font-size: 1.4rem;
+    color: #feb47b;
+}
+
+/* Button Styling */
+.btn {
+    width: 100%;
+    padding: 25px;
+    font-size: 2rem;
+    background-color: #feb47b;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.5s ease;
+    opacity: 0; /* Initially hidden */
+    animation: fadeInButton 1.5s forwards;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+/* Glowing Animation */
+@keyframes glowButton {
+    0% {
+        box-shadow: 0 0 10px #feb47b, 0 0 20px #feb47b, 0 0 30px #feb47b;
+    }
+    50% {
+        box-shadow: 0 0 20px #feb47b, 0 0 30px #feb47b, 0 0 40px #ff7e5f;
+    }
+    100% {
+        box-shadow: 0 0 10px #feb47b, 0 0 20px #feb47b, 0 0 30px #feb47b;
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInButton {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Stagger Animation for Inputs */
+#username-container {
+    animation-delay: 0.5s;
+}
+
+#password-container {
+    animation-delay: 1s;
+}
+
+#login-btn {
+    animation-delay: 1.5s;
+}
+
+/* Error Message Styling */
+.error-message {
+    color: red;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 10px;
+    display: none;
+}
+
+/* Responsive Styling */
+@media (max-width: 800px) {
+    .login-box {
+        width: 90%;
+        padding: 60px 30px;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    .input-container input,
+    .btn {
+        font-size: 1.8rem;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .login-box {
+        width: 90%;
+        padding: 50px 20px;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    .input-container input,
+    .btn {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+}
